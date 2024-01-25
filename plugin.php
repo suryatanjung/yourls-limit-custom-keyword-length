@@ -16,3 +16,15 @@ function limit_keyword_length( $error, $url, $keyword ) {
 	$max_length = 100; // Set max length limit for custom keyword
 	$min_length = 1; // Set min length limit for custom keyword
 	$length = strlen( $keyword );
+
+	if ( $length > $max_length || ( $length < $min_length && $length > 0 ) ) {
+		$error['status']  = 'fail';
+		$error['code']    = 'error:keyword';
+		$error['message'] = ( $length > $max_length )
+			? "the keyword is too long. It can't be more than {$max_length} characters"
+			: "the keyword is too short. It needs to have at least {$min_length} characters";
+		return yourls_apply_filter( 'add_new_link_keyword_length_error', $error );
+	}
+
+	return false;
+}
