@@ -10,7 +10,7 @@ This plugin limits the minimum and maximum number of characters for custom keywo
 
 By default, custom keyword length limit on this plugin is:
   * MIN = 3 characters
-  * MAX = 20 characters
+  * MAX = 30 characters
 
 ## How to
 
