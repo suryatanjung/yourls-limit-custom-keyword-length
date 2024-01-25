@@ -14,7 +14,7 @@ MAX = 20 characters
 * In `/user/plugins`, create a new folder named `limit-custom-keyword-length`
 * Drop these files in that directory
 * Open the plugin.php and edit the value of $max_length and $min_length to suit
-* Go to the Plugins administration page ( eg https://sho.rt/admin/plugins.php ) and activate the plugin 
+* Go to the Plugins administration page ( eg `https://sho.rt/admin/plugins.php` ) and activate the plugin 
 * Have fun!
 
 ## Tips
