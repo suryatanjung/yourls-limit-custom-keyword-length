@@ -20,7 +20,7 @@ By default, custom keyword length limit on this plugin is:
 
 ## Tips
 
-BTC (ERC20): 0xc96f5273bdd688aa421633c199401af407352d18
+**`BTC (ERC20): 0xc96f5273bdd688aa421633c199401af407352d18`**
 
 ## License
 
@@ -33,4 +33,4 @@ This code is released under:
 
 ## Example usage
 
-Visit: *[sor.bz | free url shortener service](https://sor.bz)*
+* *[sor.bz | free url shortener service](https://sor.bz)*
