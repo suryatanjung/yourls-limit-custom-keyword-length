@@ -27,10 +27,10 @@ BTC (ERC20): 0xc96f5273bdd688aa421633c199401af407352d18
 Limit Custom Keyword Length (YOURLS Plugin) is free software
 
 This code is released under:
-* [MIT License](https://github.com/suryatanjung/yourls-limit-custom-keyword-length/blob/main/LICENSE) Copyright (c) 2024 [Surya Tanjung](https://jung.bz/) [hi@jung.bz](mailto:hi@jung.bz)
-* YOURLS License: Do whatever the hell you want with it. :)
-* Credits: Thanks to [YOURLS Awesome Team](https://github.com/YOURLS/YOURLS/graphs/contributors)
+* [MIT License](https://github.com/suryatanjung/yourls-limit-custom-keyword-length/blob/main/LICENSE): *Copyright (c) 2024 [Surya Tanjung](https://jung.bz/) [hi@jung.bz](mailto:hi@jung.bz)*
+* [YOURLS License](https://github.com/YOURLS/YOURLS): *Do whatever the hell you want with it. :)*
+* **Credits: Thanks to [YOURLS Awesome Team](https://github.com/YOURLS/YOURLS/graphs/contributors)**
 
 ## Example usage
 
-Visit: **[sor.bz | free url shortener service](https://sor.bz)**
+Visit: *[sor.bz | free url shortener service](https://sor.bz)*
