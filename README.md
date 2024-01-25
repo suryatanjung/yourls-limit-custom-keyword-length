@@ -1,5 +1,7 @@
 # Plugin for YOURLS : Limit Custom Keyword Length
 
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Listed in Awesome YOURLS!](https://img.shields.io/badge/Awesome-YOURLS-C5A3BE)](https://github.com/YOURLS/awesome)
+
 > Works on YOURLS 1.9.2
 
 ## What for
