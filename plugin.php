@@ -13,8 +13,8 @@ yourls_add_filter( 'shunt_add_new_link', 'limit_keyword_length' );
 
 // Check custom keyword length and return an error if it exceeds the max or min length limit
 function limit_keyword_length( $error, $url, $keyword ) {
-	$max_length = 100; // Set max length limit for custom keyword
-	$min_length = 1; // Set min length limit for custom keyword
+	$max_length = 30; // Set max length limit for custom keyword
+	$min_length = 3; // Set min length limit for custom keyword
 	$length = strlen( $keyword );
 
 	if ( $length > $max_length || ( $length < $min_length && $length > 0 ) ) {
