@@ -7,3 +7,6 @@ Version: 1.0
 Author: Surya Tanjung
 Author URI: https://jung.bz/
 */
+
+// Hook custom function into the 'shunt_add_new_link' filter
+yourls_add_filter( 'shunt_add_new_link', 'limit_keyword_length' );
