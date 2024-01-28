@@ -35,4 +35,4 @@ This code is released under:
 
 ## Example usage
 
-* *[Sor.bz | Best URL Shortener, Simple, Easy, and Fre!](https://sor.bz)*
+* *[Sor.bz | Best URL Shortener, Simple, Easy, and Free!](https://sor.bz)*
