@@ -5,7 +5,7 @@ Plugin URI: https://github.com/suryatanjung/yourls-limit-custom-keyword-length/
 Description: This plugin limits the min and max number of characters for custom keyword
 Version: 1.1
 Author: Surya Tanjung
-Author URI: https://jung.bz/
+Author URI: https://jung.gg/
 */
 
 // Hook custom function into the 'shunt_add_new_link' filter
