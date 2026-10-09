@@ -3,7 +3,7 @@
 Plugin Name: Limit Custom Keyword Length
 Plugin URI: https://github.com/suryatanjung/yourls-limit-custom-keyword-length/
 Description: This plugin limits the min and max number of characters for custom keyword
-Version: 1.1
+Version: 1.2
 Author: Surya Tanjung
 Author URI: https://jung.gg/
 */
@@ -30,8 +30,8 @@ function limit_keyword_length_settings_page() {
     }
 
     // Get current settings
-    $min_length = yourls_get_option('limit_keyword_length_min', 4);
-    $max_length = yourls_get_option('limit_keyword_length_max', 15);
+    $min_length = (int) yourls_get_option('limit_keyword_length_min', 4);
+    $max_length = (int) yourls_get_option('limit_keyword_length_max', 15);
     $nonce = yourls_create_nonce( 'limit_keyword_length_settings' );
 
     echo <<<HTML
@@ -65,20 +65,38 @@ function limit_keyword_length_update_settings() {
     }
 }
 
-// Check custom keyword length and return an error if it exceeds the max or min length limit
-function limit_keyword_length( $error, $url, $keyword ) {
-    $max_length = yourls_get_option('limit_keyword_length_max', 15); // Default max length
-    $min_length = yourls_get_option('limit_keyword_length_min', 4);  // Default min length
-    $length = strlen( $keyword );
+// Check custom keyword length and return an error if it exceeds the max or min length limit.
+// $pre is the value YOURLS passes through the shunt: returning it unchanged lets YOURLS add the link,
+// returning an error array stops it. Since YOURLS 1.9 that value is yourls_shunt_default(), not false.
+function limit_keyword_length( $pre, $url, $keyword ) {
+    $default = function_exists( 'yourls_shunt_default' ) ? yourls_shunt_default() : false;
+
+    // Another plugin already answered: keep its answer
+    if ( $pre !== $default ) {
+        return $pre;
+    }
+
+    // Measure the keyword the way YOURLS will store it
+    if ( function_exists( 'yourls_sanitize_keyword' ) ) {
+        $keyword = yourls_sanitize_keyword( $keyword, true );
+    }
+
+    $max_length = (int) yourls_get_option('limit_keyword_length_max', 15); // Default max length
+    $min_length = (int) yourls_get_option('limit_keyword_length_min', 4);  // Default min length
+    $length = strlen( (string) $keyword );
 
     if ( $length > $max_length || ( $length < $min_length && $length > 0 ) ) {
-        $error['status']  = 'fail';
-        $error['code']    = 'error:keyword';
-        $error['message'] = ( $length > $max_length )
-            ? "The keyword is too long. It can't be more than {$max_length} characters."
-            : "The keyword is too short. It needs to have at least {$min_length} characters.";
+        $error = array(
+            'status'     => 'fail',
+            'code'       => 'error:keyword',
+            'message'    => ( $length > $max_length )
+                ? "The keyword is too long. It can't be more than {$max_length} characters."
+                : "The keyword is too short. It needs to have at least {$min_length} characters.",
+            'errorCode'  => '400',
+            'statusCode' => '400',
+        );
         return yourls_apply_filter( 'add_new_link_keyword_length_error', $error );
     }
 
-    return false;
+    return $pre;
 }
